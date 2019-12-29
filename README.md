@@ -1,5 +1,9 @@
 # CVWO 2020 Assignment
-### Status: WIP
+
+#### Name: KENNY HERMAWAN
+#### Matriculation Number: A0200758H
+
+#### Application Status: WIP
 
 ___
 ### Mid - Assignment Submission
