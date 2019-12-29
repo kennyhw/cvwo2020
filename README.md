@@ -1,5 +1,5 @@
-#CVWO 2020 Assignment
-###Status: WIP
+# CVWO 2020 Assignment
+### Status: WIP
 
 ___
-###Mid - Assignment Submission
+### Mid - Assignment Submission
