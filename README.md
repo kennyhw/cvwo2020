@@ -8,6 +8,6 @@
 ___
 ### Mid - Assignment Submission
 1. Rails Startup Screen:
-![Screenshot](/Rails Startup Screen(Mid-Assignment Submission).jpg)
+![Screenshot](https://github.com/kennyhw/cvwo2020/blob/master/Rails%20Startup%20Screen%20(Mid-Assignment%20Submission).jpg)
 
 2. Write-up:
