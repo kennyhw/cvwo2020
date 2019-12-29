@@ -7,3 +7,7 @@
 
 ___
 ### Mid - Assignment Submission
+1. Rails Startup Screen:
+![Screenshot](/Rails Startup Screen(Mid-Assignment Submission).jpg)
+
+2. Write-up:
