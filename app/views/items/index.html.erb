@@ -1,0 +1,23 @@
+<h2> CheckMark </h2>
+
+<%= link_to 'New Item', new_item_path %>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Tags</th>
+    <th>Complete</th>
+    <th>Delete</th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <% # TODO: Make entire cell for the content clickable (to edit item) %>
+      <td><%= item.content %></td>
+      <td>UNDER CONSTRUCTION</td>
+      <td><%= link_to 'Complete', edit_item_path(item),
+              data: { confirm: 'Complete item?' } %></td>
+      <td><%= link_to 'Delete', item_path(item), method: :delete,
+              data: { confirm: 'Delete item?' } %></td>
+    </tr>
+  <% end %>
+</table>
