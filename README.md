@@ -4,7 +4,7 @@
 **Name:** KENNY HERMAWAN  
 **Matriculation Number:** A0200758H
 ___
-### Application Detials
+### Application Details
 **Application Status:** WIP  
 **Application Link (Heroku):** https://calm-fjord-37310.herokuapp.com/
 ___
