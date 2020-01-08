@@ -1,2 +1,19 @@
-<h1> THIS PAGE IS UNDER CONSTRUCTION </h1>
+<h2>Item No. <%= @item.id %> </h2>
+
+<p>
+  <strong>Task:</strong><br>
+  <%= @item.content %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @item.created_at.strftime('%I.%M %p, %e %B %Y') %>
+</p>
+
+<p>
+  <strong>Last updated at:</strong>
+  <%= @item.updated_at.strftime('%I.%M %p, %e %B %Y') %>
+</p>
+
+<%= link_to 'Edit item', edit_item_path(@item) %><br>
 <%= link_to 'Back to Index', items_path %>

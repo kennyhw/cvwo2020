@@ -1,11 +1,4 @@
+<h2>Create New Item</h2>
 
-<%= form_with scope: :item, url: items_path, local: true do |form| %>
-  <p>
-    <%= form.label :content, 'Enter task: ' %><br>
-    <%= form.text_area :content %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
+<%= link_to 'Back to Index', items_path %>
