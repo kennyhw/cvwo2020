@@ -1,6 +1,17 @@
-<%= form_with model: @item do |form| %>
+<%= form_with model: @item, local: true do |form| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+        The item you're trying to save seems to be invalid:
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <p>
-    <%= form.label :content, 'Enter task: ' %><br>
+    <strong><%= form.label :content, 'Enter task: ' %><strong><br>
     <%= form.text_area :content %>
   </p>
  

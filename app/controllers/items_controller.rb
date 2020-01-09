@@ -1,4 +1,8 @@
 class ItemsController < ApplicationController
+  USERS = { "john" => "1234" }
+
+  before_action :authenticate, except: [:index, :show]
+
   def index
     @items = Item.all
   end
@@ -43,6 +47,12 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def authenticate
+    authenticate_or_request_with_http_digest do |username|
+      USERS[username]
+    end
+  end
 
   def item_params
     params.require(:item).permit(:content)
