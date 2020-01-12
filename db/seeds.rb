@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+@category = Category.new
+@category.title = "This is a title"
+@category.description = "This is a description"
+@category.save
 
 10.times do |idx|
-  Item.create(content: "This is item number #{idx}")
+  @item = @category.items.create(content: "This is item number #{idx}")
 end
