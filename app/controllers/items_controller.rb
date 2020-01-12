@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  # TODO: Condense HTTP Digest authentication into one controller that will be inherited by ItemsController and CategoriesController
   USERS = { "john" => "1234" }
 
-  before_action :authenticate, except: [:index, :show]
+  before_action :authenticate, except: [:show]
 
   def show
     @category = Category.find(params[:category_id])
