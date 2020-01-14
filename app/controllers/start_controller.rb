@@ -1,4 +1,3 @@
 class StartController < ApplicationController
-  def portal
-  end
+  skip_before_action :authenticate
 end
