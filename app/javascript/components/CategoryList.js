@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "@reach/router";
 
 function CategoryList() {
   const [categories, setCategories] = useState([]);
@@ -12,7 +13,15 @@ function CategoryList() {
     requestCategory();
   }, []);
 
-  return categories.map(category => <div>{category.attributes.title} | {category.attributes.description}</div>);
+  return (
+    <div>
+      <h1>Hello!</h1>
+      <nav>
+        <Link to="/add">Click</Link>
+      </nav>
+      {categories.map(category => <div><strong>{category.attributes.title}</strong> | {category.attributes.description}</div>)}
+    </div>
+  );
 }
 
 export default CategoryList;

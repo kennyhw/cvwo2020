@@ -1,5 +1,5 @@
 import React from "react";
-import { navigate } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { Formik, Field, Form } from "formik";
 
 function AddCategory() {
@@ -25,6 +25,7 @@ function AddCategory() {
   return (
     <div>
       <h3>Add new category:</h3>
+      <Link to="/">Back</Link>
       <Formik
         initialValues={{
           type: "categories",
