@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 
-function CategoryList() {
+function Main() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -15,13 +15,13 @@ function CategoryList() {
 
   return (
     <div>
-      <h1>Hello!</h1>
+      <h1>CheckMark</h1>
       <nav>
-        <Link to="/add">Click</Link>
+        <Link to="/add">New Category</Link>
       </nav>
       {categories.map(category => <div><strong>{category.attributes.title}</strong> | {category.attributes.description}</div>)}
     </div>
   );
 }
 
-export default CategoryList;
+export default Main;

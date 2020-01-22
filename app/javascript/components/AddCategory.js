@@ -16,7 +16,7 @@ function AddCategory() {
         body: JSON.stringify({ data: values })
       });
       if (response.status === 201) {
-        navigate("/");
+        navigate("/main");
       }
     };
     requestCategory();
@@ -25,7 +25,7 @@ function AddCategory() {
   return (
     <div>
       <h3>Add new category:</h3>
-      <Link to="/">Back</Link>
+      <Link to="/main">Back</Link>
       <Formik
         initialValues={{
           type: "categories",

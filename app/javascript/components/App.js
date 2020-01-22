@@ -1,12 +1,17 @@
 import React from "react";
 import { Router } from "@reach/router";
-import CategoryList from "./CategoryList";
+import StartPortal from "./StartPortal";
+import Main from "./Main";
 import AddCategory from "./AddCategory";
+import EditCategory from "./EditCategory";
 
 function App() {
   return (
     <Router>
-      <CategoryList path="/" />
+      <StartPortal path="/" default />
+      <Main path="/main">
+        <EditCategory path=":categoryId" />
+      </Main>
       <AddCategory path="/add" />
     </Router>
   );
