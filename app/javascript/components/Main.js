@@ -5,12 +5,12 @@ function Main() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const requestCategory = async () => {
+    const requestCategories = async () => {
       const response = await fetch("/api/categories");
       const { data } = await response.json();
       setCategories(data);
     };
-    requestCategory();
+    requestCategories();
   }, []);
 
   return (
@@ -19,7 +19,10 @@ function Main() {
       <nav>
         <Link to="/add">New Category</Link>
       </nav>
-      {categories.map(category => <div><strong>{category.attributes.title}</strong> | {category.attributes.description}</div>)}
+      {categories.map(category => <div><strong>{category.attributes.title}</strong> | 
+                                  {category.attributes.description}{" "}
+                                  <Link to={"/edit/" + category.id}>Edit</Link>{" "}
+                                  <Link to={"/delete/" + category.id}>Complete / Delete</Link></div>)}
     </div>
   );
 }

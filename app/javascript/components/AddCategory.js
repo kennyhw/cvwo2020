@@ -6,7 +6,7 @@ function AddCategory() {
   const handleSubmit = values => {
     const requestCategory = async () => {
       const csrfToken = document.querySelector("meta[name=csrf-token]").content;
-      const response = await fetch("api/categories", {
+      const response = await fetch("/api/categories", {
         method: "POST",
         credentials: "include",
         headers: {
@@ -37,8 +37,8 @@ function AddCategory() {
         onSubmit={handleSubmit}
         render={() => (
           <Form>
-            <Field type="text" name="attributes.title" /><br></br>
-            <Field type="text" name="attributes.description" /><br></br>
+            <Field type="text" placeholder="Enter title" name="attributes.title" /><br></br>
+            <Field type="text" placeholder="Enter description" name="attributes.description" /><br></br>
             <button type="submit">Create</button>
           </Form>
         )}
