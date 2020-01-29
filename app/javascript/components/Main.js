@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "@reach/router";
+import { Router, Link } from "@reach/router";
+import ItemIndex from "./ItemIndex";
 
 function Main() {
   const [categories, setCategories] = useState([]);
@@ -16,13 +17,21 @@ function Main() {
   return (
     <div>
       <h1>CheckMark</h1>
+      <hr></hr>
       <nav>
         <Link to="/add">New Category</Link>
       </nav>
-      {categories.map(category => <div><strong>{category.attributes.title}</strong> | 
-                                  {category.attributes.description}{" "}
-                                  <Link to={"/edit/" + category.id}>Edit</Link>{" "}
-                                  <Link to={"/delete/" + category.id}>Complete / Delete</Link></div>)}
+      <ul>
+        {categories.map(category => <li><strong>{category.attributes.title}</strong>{" "}
+                                    <Link to={"category/" + category.id}>View</Link>{" "}
+                                    <Link to={"/edit/" + category.id}>Edit</Link>{" "}
+                                    <Link to={"/delete/" + category.id}>Delete</Link>
+                                    </li>)}
+      </ul>
+      <hr></hr>
+      <Router>
+        <ItemIndex path="category/:categoryId" />
+      </Router>
     </div>
   );
 }
