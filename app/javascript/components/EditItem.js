@@ -2,22 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { Formik, Field, Form } from "formik";
 
-function EditCategory(props) {
-  const [category, setCategory] = useState({}); 
+function EditItem(props) {
+  const [item, setItem] = useState({}); 
 
   useEffect(() => {
-    const requestCategory = async () => {
-      const response = await fetch("/api/categories?filter[id]=" + props.categoryId);
+    const requestItem = async () => {
+      const response = await fetch("/api/categories/" + props.categoryId + "/items?filter[id]=" + props.itemId);
       const { data } = await response.json();
-      setCategory(data[0].attributes);
+      setItem(data[0].attributes);
     };
-    requestCategory();
+    requestItem();
   }, []);
 
   const handleSubmit = values => {
-    const patchCategory = async () => {
+    const patchItem = async () => {
       const csrfToken = document.querySelector("meta[name=csrf-token]").content;
-      const response = await fetch("/api/categories/" + props.categoryId, {
+      const response = await fetch("/api/items/" + props.itemId, {
         method: "PATCH",
         credentials: "include",
         headers: {
@@ -27,31 +27,29 @@ function EditCategory(props) {
         body: JSON.stringify({ data: values })
       });
       if (response.status === 200) {
-        navigate("/main");
+        navigate("/main/category/" + props.categoryId);
       }
     };
-    patchCategory();
+    patchItem();
   };
 
   return (
     <div>
-      <h3>Edit category:</h3>
-      <Link to="/main">Back</Link>
+      <Link to={"/main/category/" + props.categoryId}>Back</Link>
+      <h3>Edit item:</h3>
       <Formik
         enableReinitialize
         initialValues={{
-          id: props.categoryId,
-          type: "categories",
+          id: props.itemId,
+          type: "items",
           attributes: {
-            title: category.title,
-            description: category.description
+            content: item.content
           }
         }}
         onSubmit={handleSubmit}
         render={() => (
           <Form>
-            <Field type="text" name="attributes.title" /><br></br>
-            <Field type="text" name="attributes.description" /><br></br>
+            <Field type="text" name="attributes.content" /><br></br>
             <button type="submit">Save</button>
           </Form>
         )}
@@ -60,4 +58,4 @@ function EditCategory(props) {
   );
 }
 
-export default EditCategory;
+export default EditItem;

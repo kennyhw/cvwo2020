@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Router, Link } from "@reach/router";
 import ItemIndex from "./ItemIndex";
+import AddItem from "./AddItem";
+import ViewItem from "./ViewItem";
+import EditItem from "./EditItem";
+import DeleteItem from "./DeleteItem";
 
 function Main() {
   const [categories, setCategories] = useState([]);
@@ -30,7 +34,11 @@ function Main() {
       </ul>
       <hr></hr>
       <Router>
+        <AddItem path="category/:categoryId/new-item" />
         <ItemIndex path="category/:categoryId" />
+        <ViewItem path="category/:categoryId/view-item/:itemId" />
+        <EditItem path="category/:categoryId/edit-item/:itemId" />
+        <DeleteItem path="category/:categoryId/delete-item/:itemId" />
       </Router>
     </div>
   );

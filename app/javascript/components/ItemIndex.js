@@ -24,8 +24,13 @@ function ItemIndex(props) {
     <div>
       <h3>{category.title}</h3>
       <h4>{category.description}</h4>
+      <Link to="new-item">New Item</Link>
       <ol>
-        {items.map(item => <li>{item.attributes.content}</li>)}
+        {items.map(item => <li>{item.attributes.content}{" | "}
+                           <Link to={"view-item/" + item.id}>View</Link>{" "}
+                           <Link to={"edit-item/" + item.id}>Edit</Link>{" "}
+                           <Link to={"delete-item/" + item.id}>Complete / Delete</Link>{" "}
+                           </li>)}
       </ol>
     </div>
   );
