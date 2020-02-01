@@ -17,6 +17,10 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 # JR Framework
 gem 'jsonapi-resources'
+# Bootstrap for layout and styling
+gem 'bootstrap', '~> 4.4.1'
+# JQuery rails to work with Bootstrap
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
