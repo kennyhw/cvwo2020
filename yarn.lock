@@ -4780,6 +4780,18 @@ obuf@^1.0.0, obuf@^1.1.2:
   resolved "https://registry.yarnpkg.com/obuf/-/obuf-1.1.2.tgz#09bea3343d41859ebd446292d11c9d4db619084e"
   integrity sha512-PX1wu0AmAdPqOL1mWhqmlOd8kOIZQwGZw6rh7uby9fTc5lhaOWFLX3I6R1hrF9k3zUY40e6igsLGkDXK92LJNg==
 
+octicons-modular@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/octicons-modular/-/octicons-modular-1.0.1.tgz#fe56d30f1b3a7684a7079934c28e4f47d18ea06d"
+  integrity sha512-1W6iKewAm4xEhxKNj62d5dBozczj/uBPCXbcXfFIL0TRQgfDiMaM7nBTsDk+cBqf1lV0ssEUaQCQzFIckFNtRw==
+
+octicons-react@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/octicons-react/-/octicons-react-1.0.1.tgz#4d8d28bc2d42fd395f2f3404eecc1a72ee143672"
+  integrity sha512-PgD24zr2/bBIugZwb0sAuE+Pzvamm+lvw9LCtkNWQoZTkDLWb9PrhsPd23bm9mNDTmXUwWPad6EvKKkM8A0GbQ==
+  dependencies:
+    octicons-modular "^1.0.1"
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
