@@ -44,7 +44,9 @@ function Main() {
         </div>
         <div class="row">
           <div class="col-md-12">
-            <Link to="/add" className="btn btn-outline-primary btn-sm">New Category <Octicon icon={Octicons.plus} className="align-text-bottom" /></Link>
+            <Link to="/add" className="btn btn-outline-primary btn-sm">
+              New Category <Octicon icon={Octicons.diff} scale={1.2} className="align-text-bottom" />
+            </Link>
           </div>
         </div>
         <br></br>
@@ -57,9 +59,15 @@ function Main() {
                     <strong>{category.attributes.title}</strong>
                   </div>
                   <div class="col-md-3 col-md-offset-1">
-                    <Link className="btn btn-primary mr-1" to={"category/" + category.id}><Octicon icon={Octicons.listUnordered} className="align-baseline" /></Link>{" "}
-                    <Link className="btn btn-primary mr-1" to={"/edit/" + category.id}><Octicon icon={Octicons.pencil} className="align-baseline" /></Link>{" "}
-                    <Link className="btn btn-primary mr-1" to={"/delete/" + category.id}><Octicon icon={Octicons.trashcan} className="align-baseline" /></Link>
+                    <Link className="btn btn-primary mr-1" to={"category/" + category.id}>
+                      <Octicon icon={Octicons.listUnordered} className="align-baseline" />
+                    </Link>{" "}
+                    <Link className="btn btn-primary mr-1" to={"/edit/" + category.id}>
+                      <Octicon icon={Octicons.pencil} className="align-baseline" />
+                    </Link>{" "}
+                    <Link className="btn btn-primary mr-1" to={"/delete/" + category.id}>
+                      <Octicon icon={Octicons.trashcan} className="align-baseline" />
+                    </Link>
                   </div>
                 </div>
               </td>
@@ -79,8 +87,8 @@ function Main() {
         <div class="container-fluid">
           <div class="d-flex bd-highlight justify-content-between">
             <span class="text-muted text-center small">
-              Powered by <Octicon icon={Octicons.logoGithub} className="align-bottom" />{" "}
-              <Octicon icon={Octicons.markGithub} className="align-bottom" /> | Made for
+              <a class="nonunderline" href="https://github.com/kennyhw/cvwo2020">Maintained on <Octicon icon={Octicons.logoGithub} className="align-bottom" />{" "}
+              <Octicon icon={Octicons.markGithub} className="align-bottom" /> </a>| Made for
               CVWO2020 Assignment
             </span>
           </div>
