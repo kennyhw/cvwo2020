@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Router, Link } from "@reach/router";
 import ItemIndex from "./ItemIndex";
-import AddItem from "./AddItem";
-import ViewItem from "./ViewItem";
-import EditItem from "./EditItem";
-import DeleteItem from "./DeleteItem";
+import AddCategory from "./AddCategory";
+import EditCategory from "./EditCategory";
+import DeleteCategory from "./DeleteCategory";
 import { Octicon, Octicons } from "octicons-react";
 
-function Main() {
+function Main(props) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -17,7 +16,7 @@ function Main() {
       setCategories(data);
     };
     requestCategories();
-  }, []);
+  }, [props]);
 
   return (
     <div>
@@ -30,8 +29,8 @@ function Main() {
               </span>
             </div>
             <div class="col-md-10">
-              <span class="navbar-brand"> 
-              <h3>CheckMark</h3><h4 class="small">Task Management Application</h4></span>
+              <span class="navbar-brand">
+                <h3>CheckMark</h3><h4 class="small">Task Management Application</h4></span>
             </div>
           </div>
         </div>
@@ -44,43 +43,50 @@ function Main() {
         </div>
         <div class="row">
           <div class="col-md-12">
-            <Link to="/add" className="btn btn-outline-primary btn-sm">
+            <Link to="add" className="btn btn-outline-secondary btn-sm">
               New Category <Octicon icon={Octicons.diff} scale={1.2} className="align-text-bottom" />
             </Link>
           </div>
         </div>
         <br></br>
-        <table class="table table-hover">
-          {categories.map(category =>
-            <tr>
-              <td>
-                <div class="row">
-                  <div class="col-md-3 navbar-brand">
-                    <strong>{category.attributes.title}</strong>
-                  </div>
-                  <div class="col-md-3 col-md-offset-1">
-                    <Link className="btn btn-primary mr-1" to={"category/" + category.id}>
-                      <Octicon icon={Octicons.listUnordered} className="align-baseline" />
-                    </Link>{" "}
-                    <Link className="btn btn-primary mr-1" to={"/edit/" + category.id}>
-                      <Octicon icon={Octicons.pencil} className="align-baseline" />
-                    </Link>{" "}
-                    <Link className="btn btn-primary mr-1" to={"/delete/" + category.id}>
-                      <Octicon icon={Octicons.trashcan} className="align-baseline" />
-                    </Link>
-                  </div>
-                </div>
-              </td>
-            </tr>
-          )}
-        </table>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-hover">
+              {categories.map(category =>
+                <tr>
+                  <td>
+                    <div class="row">
+                      <div class="col-md-6 navbar-brand">
+                        <strong>{category.attributes.title}</strong>
+                      </div>
+                      <div class="col-md-5">
+                        <Link className="btn btn-outline-secondary mr-1" to={"category/" + category.id}>
+                          <Octicon icon={Octicons.listUnordered} className="align-baseline" />
+                        </Link>{" "}
+                        <Link className="btn btn-outline-secondary mr-1" to={"edit/" + category.id}>
+                          <Octicon icon={Octicons.tools} className="align-baseline" />
+                        </Link>{" "}
+                        <Link className="btn btn-outline-secondary mr-1" to={"delete/" + category.id}>
+                          <Octicon icon={Octicons.trashcan} className="align-baseline" />
+                        </Link>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </table>
+          </div>
+          <div class="col-md-6">
+            <Router>
+              <AddCategory path="add" />
+              <EditCategory path="edit/:categoryId" />
+              <DeleteCategory path="delete/:categoryId" />
+            </Router>
+          </div>
+        </div>
         <hr class="divider"></hr>
         <Router primary={false}>
-          <AddItem path="category/:categoryId/new-item" />
-          <ItemIndex path="category/:categoryId" />
-          <ViewItem path="category/:categoryId/view-item/:itemId" />
-          <EditItem path="category/:categoryId/edit-item/:itemId" />
-          <DeleteItem path="category/:categoryId/delete-item/:itemId" />
+          <ItemIndex path="category/:categoryId/*" />
         </Router>
       </div>
       <nav class="navbar fixed-bottom navbar-light bg-light">
@@ -88,7 +94,7 @@ function Main() {
           <div class="d-flex bd-highlight justify-content-between">
             <span class="text-muted text-center small">
               <a class="nonunderline" href="https://github.com/kennyhw/cvwo2020">Maintained on <Octicon icon={Octicons.logoGithub} className="align-bottom" />{" "}
-              <Octicon icon={Octicons.markGithub} className="align-bottom" /> </a>| Made for
+                <Octicon icon={Octicons.markGithub} className="align-bottom" /> </a>| Made for
               CVWO2020 Assignment
             </span>
           </div>

@@ -1,9 +1,10 @@
 import React from "react";
 import { navigate } from "@reach/router";
 
-function DeleteItem(props) {
-  const handleDelete = () => {
-    const destroyItem = async () => {
+function CompleteItem(props) {
+  const handleComplete = (e) => {
+    e.preventDefault();
+    const completeItem = async () => {
       const values = {
         id: props.itemId,
         type: "items"
@@ -18,19 +19,22 @@ function DeleteItem(props) {
         },
         body: JSON.stringify({ data: values })
       });
+      if (response.status === 204) {
+        navigate("/main/category/" + props.categoryId);
+      }
     };
-    destroyItem();
-    navigate("/main/category/" + props.categoryId);
+    completeItem();
   };
 
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.preventDefault();
     navigate("/main/category/" + props.categoryId);
   };
 
   return (
     <div>
-      Are you sure you want to complete / delete this item?
-      <form onSubmit={handleDelete}>
+      Are you sure you want to complete this item?
+      <form onSubmit={handleComplete}>
         <button type="submit">Yes</button>
       </form>
       <form onSubmit={handleBack}>
@@ -40,4 +44,4 @@ function DeleteItem(props) {
   );
 }
 
-export default DeleteItem;
+export default CompleteItem;

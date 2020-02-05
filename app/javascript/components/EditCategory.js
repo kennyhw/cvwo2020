@@ -12,7 +12,7 @@ function EditCategory(props) {
       setCategory(data[0].attributes);
     };
     requestCategory();
-  }, []);
+  }, [props]);
 
   const handleSubmit = values => {
     const patchCategory = async () => {
@@ -29,6 +29,9 @@ function EditCategory(props) {
       if (response.status === 200) {
         navigate("/main");
       }
+      if (response.status === 422) {
+        navigate("", { state: { error: "Category title is too short (minimum is 3 characters)" } });
+      }
     };
     patchCategory();
   };
@@ -36,7 +39,8 @@ function EditCategory(props) {
   return (
     <div>
       <h3>Edit category:</h3>
-      <Link to="/main">Back</Link>
+      <Link to="/main">Back</Link><br></br>
+      {props.location.state.error}
       <Formik
         enableReinitialize
         initialValues={{

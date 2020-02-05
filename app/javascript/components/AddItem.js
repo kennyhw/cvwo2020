@@ -18,6 +18,9 @@ function AddItem(props) {
       if (response.status === 201) {
         navigate("/main/category/" + props.categoryId);
       }
+      if (response.status === 422) {
+        navigate("", { state: { error: "Content is too short (minimum is 3 characters)" } });
+      }
     };
     requestItem();
   };
@@ -25,7 +28,8 @@ function AddItem(props) {
   return (
     <div>
       <h3>Add new item:</h3>
-      <Link to={"/main/category/" + props.categoryId}>Back</Link>
+      <Link to={"/main/category/" + props.categoryId}>Back</Link><br></br>
+      {props.location.state.error}
       <Formik
         initialValues={{
           type: "items",

@@ -12,7 +12,7 @@ function EditItem(props) {
       setItem(data[0].attributes);
     };
     requestItem();
-  }, []);
+  }, [props]);
 
   const handleSubmit = values => {
     const patchItem = async () => {
@@ -29,13 +29,17 @@ function EditItem(props) {
       if (response.status === 200) {
         navigate("/main/category/" + props.categoryId);
       }
+      if (response.status === 422) {
+        navigate("", { state: { error: "Content is too short (minimum is 3 characters)" } });
+      }
     };
     patchItem();
   };
 
   return (
     <div>
-      <Link to={"/main/category/" + props.categoryId}>Back</Link>
+      <Link to={"/main/category/" + props.categoryId}>Back</Link><br></br>
+      {props.location.state.error}
       <h3>Edit item:</h3>
       <Formik
         enableReinitialize

@@ -11,7 +11,7 @@ function ViewItem(props) {
       setItem(data[0].attributes);
     };
     requestItem();
-  }, []);
+  }, [props]);
 
   return (
     <div>

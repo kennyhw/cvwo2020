@@ -2,7 +2,8 @@ import React from "react";
 import { navigate } from "@reach/router";
 
 function DeleteCategory(props) {
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault();
     const destroyCategory = async () => {
       const values = {
         id: props.categoryId,
@@ -18,12 +19,15 @@ function DeleteCategory(props) {
         },
         body: JSON.stringify({ data: values })
       });
+      if (response.status === 204) {
+        navigate("/main");
+      }
     };
     destroyCategory();
-    navigate("/main");
   };
 
-  const handleBack = () => {
+  const handleBack = (e) => {
+    e.preventDefault();
     navigate("/main");
   };
 
