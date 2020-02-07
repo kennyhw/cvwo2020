@@ -27,11 +27,11 @@ function AddCategory(props) {
   };
 
   return (
-    <div class="card border-secondary h-100">
-      <div class="card-header d-flex flex-column text-secondary">
+    <div class="card border border-secondary h-100">
+      <div class="card-header text-secondary">
         <div class="row">
           <div class="col-md-10">
-            <h4 class="font-weight-bold">Add new category:</h4>
+            <h4 class="font-weight-bold">Add New Category</h4>
           </div>
           <div class="col-md-2 text-right">
             <Link className="btn btn-outline-warning align-bottom btn-sm mr-1" to="/main">
@@ -40,9 +40,10 @@ function AddCategory(props) {
           </div>
         </div>
       </div>
-      <div class="card-body d-flex flex-column align-items-start">
+      <div class="card-body d-flex flex-column align-items-start no-gutters">
         {props.location.state.error ? 
-          <div class="alert alert-warning alert-dismissable show fade">
+          <div class="alert alert-warning alert-dismissable show fade py-1 mb-3 w-100">
+            <Octicon icon={Octicons.issueOpened} scale={1.35} className="mr-2" />
             {props.location.state.error}
           </div>
         : ""}
@@ -56,9 +57,9 @@ function AddCategory(props) {
           }}
           onSubmit={handleSubmit}
           render={() => (
-            <Form>
-              <Field type="text" class="form-control" placeholder="Enter title" name="attributes.title" /><br></br>
-              <Field type="text" class="form-control" placeholder="Enter description" name="attributes.description" /><br></br>
+            <Form class="col-md-12">
+              <Field class="form-control" type="text" placeholder="Enter title" name="attributes.title" /><br></br>
+              <Field class="form-control" type="text" placeholder="Enter description" name="attributes.description" /><br></br>
               <button class="btn btn-secondary text-white" type="submit">Create</button>
             </Form>
           )}

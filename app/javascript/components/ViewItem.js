@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
+import { Octicon, Octicons } from "octicons-react";
 
 function ViewItem(props) {
-  const [item, setItem] = useState({}); 
+  const [item, setItem] = useState({});
 
   useEffect(() => {
     const requestItem = async () => {
@@ -14,12 +15,24 @@ function ViewItem(props) {
   }, [props]);
 
   return (
-    <div>
-      <Link to={"/main/category/" + props.categoryId}>Back</Link>
-      <h3>Item Details</h3>
-      <strong>Content:</strong> {item.content}<br></br>
-      <strong>Created at:</strong> {new Date(Date.parse(item["created-at"])).toLocaleTimeString()}, {new Date(Date.parse(item["created-at"])).toDateString()}<br></br>
-      <strong>Updated at:</strong> {new Date(Date.parse(item["updated-at"])).toLocaleTimeString()}, {new Date(Date.parse(item["updated-at"])).toDateString()}<br></br>
+    <div class="card border border-success bg-success h-100">
+      <div class="card-header text-white">
+        <div class="row">
+          <div class="col-md-10">
+            <h4 class="font-weight-bold">Item Details</h4>
+          </div>
+          <div class="col-md-2 text-right">
+            <Link className="btn btn-outline-light align-bottom btn-sm mr-1" to={"/main/category/" + props.categoryId}>
+              <Octicon icon={Octicons.x} className="align-text-bottom" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div class="card-body bg-white d-flex flex-column align-items-start no-gutters">
+          <h6><strong>Content:</strong></h6><h6 class="text-muted">{item.content}</h6>
+          <h6><strong>Created at:</strong></h6><h6 class="text-muted">{new Date(Date.parse(item["created-at"])).toLocaleTimeString()}, {new Date(Date.parse(item["created-at"])).toDateString()}</h6>
+          <h6><strong>Updated at:</strong></h6><h6 class="text-muted">{new Date(Date.parse(item["updated-at"])).toLocaleTimeString()}, {new Date(Date.parse(item["updated-at"])).toDateString()}</h6>
+      </div>
     </div>
   );
 }

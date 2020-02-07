@@ -27,11 +27,11 @@ function ItemIndex(props) {
 
   return (
     <div>
-      <div class="row jumbotron w-100 py-2 mx-auto bg-dark text-white">
-        <div class="col-md-12">
+      <div class="row jumbotron w-100 py-2 mx-auto bg-dark text-white no-gutters">
+        <div class="col-12">
           <h3><strong>{category.title}</strong></h3>
         </div>
-        <div class="col-md-12">
+        <div class="col-12">
           <h3 class="small">{category.description}</h3>
         </div>
       </div>
@@ -52,14 +52,14 @@ function ItemIndex(props) {
                   <div class="col-md-6">
                     {item.attributes.content}
                   </div>
-                  <div class="col-md-6">
-                    <Link className="btn btn-outline-success btn mr-1" to={"complete-item/" + item.id}>
+                  <div class="col-md-6 text-right">
+                    <Link className="btn btn-outline-success btn mr-2" to={"complete-item/" + item.id}>
                       <Octicon icon={Octicons.check} scale={1.2} className="align-text-top" />
                     </Link>
-                    <Link className="btn btn-outline-success btn mr-1" to={"edit-item/" + item.id}>
+                    <Link className="btn btn-outline-success btn mr-2" to={"edit-item/" + item.id}>
                       <Octicon icon={Octicons.pencil} className="align-baseline" />
                     </Link>
-                    <Link className="btn btn-outline-success btn mr-1" to={"view-item/" + item.id}>
+                    <Link className="btn btn-outline-success btn mr-2" to={"view-item/" + item.id}>
                       <Octicon icon={Octicons.info} className="align-baseline" />
                     </Link>
                   </div>

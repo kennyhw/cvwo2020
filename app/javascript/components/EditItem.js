@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, navigate } from "@reach/router";
 import { Formik, Field, Form } from "formik";
+import { Octicon, Octicons } from "octicons-react";
 
 function EditItem(props) {
-  const [item, setItem] = useState({}); 
+  const [item, setItem] = useState({});
 
   useEffect(() => {
     const requestItem = async () => {
@@ -37,27 +38,44 @@ function EditItem(props) {
   };
 
   return (
-    <div>
-      <Link to={"/main/category/" + props.categoryId}>Back</Link><br></br>
-      {props.location.state.error}
-      <h3>Edit item:</h3>
-      <Formik
-        enableReinitialize
-        initialValues={{
-          id: props.itemId,
-          type: "items",
-          attributes: {
-            content: item.content
-          }
-        }}
-        onSubmit={handleSubmit}
-        render={() => (
-          <Form>
-            <Field type="text" name="attributes.content" /><br></br>
-            <button type="submit">Save</button>
-          </Form>
-        )}
-      />
+    <div class="card border border-success bg-success h-100">
+      <div class="card-header text-white">
+        <div class="row">
+          <div class="col-md-10">
+            <h4 class="font-weight-bold">Edit Item</h4>
+          </div>
+          <div class="col-md-2 text-right">
+            <Link className="btn btn-outline-light align-bottom btn-sm mr-1" to={"/main/category/" + props.categoryId}>
+              <Octicon icon={Octicons.x} className="align-text-bottom" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div class="card-body bg-white d-flex flex-column align-items-start no-gutters">
+        {props.location.state.error ?
+          <div class="alert alert-info alert-dismissable show fade py-1 w-100">
+            <Octicon icon={Octicons.issueOpened} scale={1.35} className="mr-2" />
+            {props.location.state.error}
+          </div>
+          : ""}
+        <Formik
+          enableReinitialize
+          initialValues={{
+            id: props.itemId,
+            type: "items",
+            attributes: {
+              content: item.content
+            }
+          }}
+          onSubmit={handleSubmit}
+          render={() => (
+            <Form class="col-md-12">
+              <Field class="form-control mb-0" type="text" name="attributes.content" /><br></br>
+              <button class="btn btn-success text-white" type="submit">Save</button>
+            </Form>
+          )}
+        />
+      </div>
     </div>
   );
 }

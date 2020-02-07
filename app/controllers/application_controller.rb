@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   USERS = { "john" => "1234" }
 
 
+
   private
 
   def authenticate

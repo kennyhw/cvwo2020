@@ -32,14 +32,31 @@ function CompleteItem(props) {
   };
 
   return (
-    <div>
-      Are you sure you want to complete this item?
-      <form onSubmit={handleComplete}>
-        <button type="submit">Yes</button>
-      </form>
-      <form onSubmit={handleBack}>
-        <button type="submit">No</button>
-      </form>
+    <div class="card border border-success w-75 h-100">
+      <div class="card-body d-flex flex-column no-gutters">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h4 class="card-title text-success">Item completed?</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr class="mt-0"></hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 text-right">
+            <form onSubmit={handleComplete}>
+              <button class="btn btn-block btn-success text-white" type="submit">Yes</button>
+            </form>
+          </div>
+          <div class="col-md-6 text-left">
+            <form onSubmit={handleBack}>
+              <button class="btn btn-block btn-success text-white" type="submit">No</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

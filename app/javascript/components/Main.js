@@ -38,7 +38,7 @@ function Main(props) {
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-12">
-            <h3 class="featurette"><strong>Categories</strong></h3>
+            <h3 class="featurette mb-3"><strong>Categories</strong></h3>
           </div>
         </div>
         <div class="row">
@@ -56,17 +56,17 @@ function Main(props) {
                 <tr>
                   <td>
                     <div class="row">
-                      <div class="col-md-6 navbar-brand">
+                      <div class="col-md-5 navbar-brand">
                         <strong>{category.attributes.title}</strong>
                       </div>
-                      <div class="col-md-5">
-                        <Link className="btn btn-outline-secondary mr-1" to={"category/" + category.id}>
+                      <div class="col-md-6 text-right">
+                        <Link className="btn btn-outline-secondary mr-2" to={"category/" + category.id}>
                           <Octicon icon={Octicons.listUnordered} className="align-baseline" />
-                        </Link>{" "}
-                        <Link className="btn btn-outline-secondary mr-1" to={"edit/" + category.id}>
+                        </Link>
+                        <Link className="btn btn-outline-secondary mr-2" to={"edit/" + category.id}>
                           <Octicon icon={Octicons.tools} className="align-baseline" />
-                        </Link>{" "}
-                        <Link className="btn btn-outline-secondary mr-1" to={"delete/" + category.id}>
+                        </Link>
+                        <Link className="btn btn-outline-secondary mr-2" to={"delete/" + category.id}>
                           <Octicon icon={Octicons.trashcan} className="align-baseline" />
                         </Link>
                       </div>
@@ -84,10 +84,13 @@ function Main(props) {
             </Router>
           </div>
         </div>
-        <hr class="divider"></hr>
-        <Router primary={false}>
-          <ItemIndex path="category/:categoryId/*" />
-        </Router>
+        <div class="row">
+          <div class="col-md-12">
+            <Router primary={false}>
+              <ItemIndex path="category/:categoryId/*" />
+            </Router>
+          </div>
+        </div>
       </div>
       <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid">
@@ -95,7 +98,7 @@ function Main(props) {
             <span class="text-muted text-center small">
               <a class="nonunderline" href="https://github.com/kennyhw/cvwo2020">Maintained on <Octicon icon={Octicons.logoGithub} className="align-bottom" />{" "}
                 <Octicon icon={Octicons.markGithub} className="align-bottom" /> </a>| Made for
-              CVWO2020 Assignment
+            CVWO2020 Assignment
             </span>
           </div>
         </div>
