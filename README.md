@@ -5,8 +5,12 @@
 * **Matriculation Number:** A0200758H
 ___
 ### Application Details
-* **Application Status:** WIP  
+* **Application Status:** Completed  
 * **Application Link (Heroku):** https://calm-fjord-37310.herokuapp.com/
+___
+### Final Submission
+1. Write-up and User Manual:
+[PDF Document]()
 ___
 ### Mid - Assignment Submission
 1. Rails Startup Screen:
