@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Router, Link } from "@reach/router";
+import { Octicon, Octicons } from "octicons-react";
 import AddItem from "./AddItem";
 import ViewItem from "./ViewItem";
 import EditItem from "./EditItem";
 import CompleteItem from "./CompleteItem";
-import { Octicon, Octicons } from "octicons-react";
 
+// Displays all the items in a certain category
 function ItemIndex(props) {
   const [category, setCategory] = useState({});
   const [items, setItems] = useState([]);
 
+  // Fetches all the items in a category (from the API)
   useEffect(() => {
     const requestCategory = async () => {
       const response = await fetch("/api/categories?filter[id]=" + props.categoryId);

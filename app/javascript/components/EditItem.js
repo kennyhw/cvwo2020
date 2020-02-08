@@ -6,6 +6,7 @@ import { Octicon, Octicons } from "octicons-react";
 function EditItem(props) {
   const [item, setItem] = useState({});
 
+  // Fetches the item details from the API everytime the component mounts/unmounts (or if its props change)
   useEffect(() => {
     const requestItem = async () => {
       const response = await fetch("/api/categories/" + props.categoryId + "/items?filter[id]=" + props.itemId);
@@ -15,6 +16,7 @@ function EditItem(props) {
     requestItem();
   }, [props]);
 
+  // Handles the saving of an edited item by sending a PATCH request to the API
   const handleSubmit = values => {
     const patchItem = async () => {
       const csrfToken = document.querySelector("meta[name=csrf-token]").content;

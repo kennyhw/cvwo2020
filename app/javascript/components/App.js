@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import StartPortal from "./StartPortal";
 import Main from "./Main";
 
+// Foundational component of the application
 function App() {
   return (
     <Router>

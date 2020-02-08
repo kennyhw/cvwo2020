@@ -4,6 +4,7 @@ import { Formik, Field, Form } from "formik";
 import { Octicon, Octicons } from "octicons-react";
 
 function AddCategory(props) {
+  // Handles submission of new category by sending a POST request to the API
   const handleSubmit = values => {
     const requestCategory = async () => {
       const csrfToken = document.querySelector("meta[name=csrf-token]").content;

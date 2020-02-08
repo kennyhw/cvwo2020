@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import { Octicon, Octicons } from "octicons-react";
 
+// Displays the details of a selected item in a category
 function ViewItem(props) {
   const [item, setItem] = useState({});
-
+  
+  // Fetches the item details from the API everytime the component mounts/unmounts (or if its props change)
   useEffect(() => {
     const requestItem = async () => {
       const response = await fetch("/api/categories/" + props.categoryId + "/items?filter[id]=" + props.itemId);

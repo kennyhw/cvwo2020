@@ -1,8 +1,8 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import { Octicon, Octicons } from "octicons-react";
 
 function DeleteCategory(props) {
+  // Handles the deletion of a category by sending a DELETE request to the API
   const handleDelete = (e) => {
     e.preventDefault();
     const destroyCategory = async () => {
@@ -27,6 +27,7 @@ function DeleteCategory(props) {
     destroyCategory();
   };
 
+  // Provides a back / close functionality
   const handleBack = (e) => {
     e.preventDefault();
     navigate("/main");

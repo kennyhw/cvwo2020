@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "@reach/router";
 import { Octicon, Octicons } from "octicons-react";
 
+// Renders a cover page for the application
 function StartPortal() {
   return (
     <div class="cover-container d-flex mx-auto flex-column w-100 h-100">

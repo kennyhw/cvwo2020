@@ -6,6 +6,7 @@ import { Octicon, Octicons } from "octicons-react";
 function EditCategory(props) {
   const [category, setCategory] = useState({});
 
+  // Fetches the category details from the API everytime the component mounts/unmounts (or if its props change)
   useEffect(() => {
     const requestCategory = async () => {
       const response = await fetch("/api/categories?filter[id]=" + props.categoryId);
@@ -15,6 +16,7 @@ function EditCategory(props) {
     requestCategory();
   }, [props]);
 
+  // Handles the saving of an edited category by sending a PATCH request to the API
   const handleSubmit = values => {
     const patchCategory = async () => {
       const csrfToken = document.querySelector("meta[name=csrf-token]").content;

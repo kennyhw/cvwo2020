@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-  USERS = { "john" => "1234" }
+  USERS = { "user" => "pass" }
 
-
+  # Adds HTTP Digest authentication (currently disabled - uncomment to enable)
+  # before_action :authenticate
 
   private
 

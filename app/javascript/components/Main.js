@@ -6,9 +6,11 @@ import EditCategory from "./EditCategory";
 import DeleteCategory from "./DeleteCategory";
 import { Octicon, Octicons } from "octicons-react";
 
+// Renders the home / main page of the app
 function Main(props) {
   const [categories, setCategories] = useState([]);
 
+  // Fetches all the categories from the API
   useEffect(() => {
     const requestCategories = async () => {
       const response = await fetch("/api/categories");

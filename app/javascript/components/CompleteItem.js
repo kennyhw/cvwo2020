@@ -2,6 +2,7 @@ import React from "react";
 import { navigate } from "@reach/router";
 
 function CompleteItem(props) {
+  // Handles the completion (deletion) of an item in a category by sending a DELETE request to the API
   const handleComplete = (e) => {
     e.preventDefault();
     const completeItem = async () => {
@@ -26,6 +27,7 @@ function CompleteItem(props) {
     completeItem();
   };
 
+  // Provides back / close functionality
   const handleBack = (e) => {
     e.preventDefault();
     navigate("/main/category/" + props.categoryId);
