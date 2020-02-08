@@ -32,7 +32,7 @@ function CompleteItem(props) {
   };
 
   return (
-    <div class="card border border-success w-75 h-100">
+    <div class="card border border-success w-75 h-100 shadow">
       <div class="card-body d-flex flex-column no-gutters">
         <div class="row">
           <div class="col-md-12 text-center">

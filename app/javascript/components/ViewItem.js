@@ -15,7 +15,7 @@ function ViewItem(props) {
   }, [props]);
 
   return (
-    <div class="card border border-success bg-success h-100">
+    <div class="card border border-success bg-success h-100 shadow">
       <div class="card-header text-white">
         <div class="row">
           <div class="col-md-10">

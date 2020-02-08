@@ -38,7 +38,7 @@ function EditCategory(props) {
   };
 
   return (
-    <div class="card border border-secondary h-100">
+    <div class="card border border-secondary h-100 shadow">
       <div class="card-header d-flex flex-column text-secondary">
         <div class="row">
           <div class="col-md-10">
