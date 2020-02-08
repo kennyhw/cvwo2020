@@ -12,5 +12,5 @@
 @category.save
 
 10.times do |idx|
-  @item = @category.items.create(content: "This is item number #{idx}")
+  @item = @category.items.create(content: "This is item number #{idx + 1}")
 end
