@@ -30,7 +30,7 @@ function Main(props) {
             </div>
             <div class="col-md-10">
               <span class="navbar-brand">
-                <h3>CheckMark</h3><h4 class="small">Task Management Application</h4></span>
+                <h3 class="font-weight-bold my-auto">CheckMark</h3><h4 class="small">Task Management Application</h4></span>
             </div>
           </div>
         </div>
