@@ -1,4 +1,4 @@
-# CVWO 2020 Assignment
+# CVWO 2020 Assignment [ARCHIVED]
 
 ### Student Details
 * **Name:** KENNY HERMAWAN  
